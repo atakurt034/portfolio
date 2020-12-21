@@ -3,12 +3,16 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import morgan from 'morgan'
 
+import users from './routes/userRoutes.js'
+
 const app = express()
 dotenv.config()
 
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
+
+app.use('/api/users', users)
 
 app.get('/', (req, res) => {
   res.send('Server running')
