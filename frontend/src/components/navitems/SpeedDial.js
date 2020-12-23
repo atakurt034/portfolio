@@ -1,15 +1,19 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import SpeedDial from '@material-ui/lab/SpeedDial'
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon'
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction'
-import FileCopyIcon from '@material-ui/icons/FileCopyOutlined'
-import SaveIcon from '@material-ui/icons/Save'
-import PrintIcon from '@material-ui/icons/Print'
+
+import HomeIcon from '@material-ui/icons/Home'
+import LanguageIcon from '@material-ui/icons/Language'
+import FolderIcon from '@material-ui/icons/Folder'
+import CallIcon from '@material-ui/icons/Call'
+
 import MenuIcon from '@material-ui/icons/Menu'
 import MenuOpenIcon from '@material-ui/icons/MenuOpen'
 
+import moduleName from 'module'
 import { withRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,19 +67,24 @@ const SpeedDials = ({ history }) => {
         open={open}
       >
         <SpeedDialAction
-          icon={<PrintIcon />}
+          icon={<CallIcon />}
           tooltipTitle={'Contact Me'}
           onClick={() => clickHandler('contact')}
         />
+        <SpeedDialAction
+          icon={<FolderIcon />}
+          tooltipTitle={'Projects'}
+          onClick={() => clickHandler('project')}
+        />
 
         <SpeedDialAction
-          icon={<SaveIcon />}
+          icon={<LanguageIcon />}
           tooltipTitle={'Stacks'}
           onClick={() => clickHandler('stacks')}
         />
 
         <SpeedDialAction
-          icon={<FileCopyIcon />}
+          icon={<HomeIcon />}
           tooltipTitle={'About'}
           onClick={() => clickHandler('about')}
         />

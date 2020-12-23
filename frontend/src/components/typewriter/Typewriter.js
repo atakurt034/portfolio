@@ -27,8 +27,9 @@ export const TypeWriter = ({ exit, enter }) => {
         onInit={(typewriter) => {
           typewriter
             .pauseFor(500)
-            .callFunction(() => enter())
             .callFunction(() => setChange(0))
+            .pauseFor(300)
+            .callFunction(() => enter())
             .typeString(
               '<span class="string">Hi my name is <span class="name">Kurt Anthony Golingay</span></span>'
             )
@@ -46,14 +47,13 @@ export const TypeWriter = ({ exit, enter }) => {
             .typeString(
               '<span class="string">lso a <span class="blue">nurse</span> but my passion is</span>'
             )
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
             .deleteAll()
-            .pauseFor(300)
+            .pauseFor(100)
+            .typeString('<span class="string">.</span>')
+            .pauseFor(100)
+            .typeString('<span class="string">.</span>')
+            .pauseFor(100)
+            .typeString('<span class="string">.</span>')
             .typeString('<span class="red string">CODING</span>')
             .pauseFor(1000)
             .deleteAll()

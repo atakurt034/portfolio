@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import { Fade } from 'react-reveal'
 import clsx from 'clsx'
+import DiverText from '../../components/DividerWithText'
 
 import './sStyles.css'
 
@@ -25,7 +26,16 @@ const useStyles = makeStyles((theme) => ({
   title_container: {
     padding: 20,
   },
+  itemContainer: {
+    textAlign: 'center',
+    marginBottom: 20,
+  },
   title: {
+    width: 'fit-content',
+    margin: '10px auto 20px',
+    fontWeight: 900,
+  },
+  subTitle: {
     textAlign: 'center',
     fontWeight: 900,
     marginBottom: 20,
@@ -47,12 +57,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   loading: {
-    marginLeft: '25vw',
-    [theme.breakpoints.up('md')]: {
-      marginLeft: '27vw',
-    },
     fontWeight: 900,
-    marginBottom: 20,
+    marginLeft: 30,
+    width: 140,
+  },
+  ongoing: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 }))
 
@@ -65,6 +76,7 @@ const frontend = [
   { image: 'maui', name: 'Material UI' },
   { image: 'react', name: 'React' },
   { image: 'ejs', name: 'Ejs' },
+  { image: 'photoshop', name: 'Photoshop' },
 ]
 const backend = [
   { image: 'js', name: 'Javascript' },
@@ -73,22 +85,30 @@ const backend = [
   { image: 'mongo', name: 'Mongodb' },
   { image: 'node', name: 'Node Js' },
 ]
+const ongoing = [
+  { image: 'apollo', name: 'Apollo' },
+  { image: 'deno', name: 'Deno' },
+  { image: 'graphql', name: 'Graphql' },
+  { image: 'nextjs', name: 'Next Js' },
+  { image: 'php', name: 'Php' },
+  { image: 'postgres', name: 'Postgres' },
+]
 
 export const Stacks = () => {
   const classes = useStyles()
 
   return (
-    <div id='stacks'>
+    <Paper id='stacks'>
       <Grid container className={classes.stacks}>
         <Container maxWidth='md' className={classes.title_container}>
-          <Typography variant='h4' component='h1' className={classes.title}>
-            Stacks I've learned
+          <Typography variant='h4' className={classes.title}>
+            <DiverText>Stacks</DiverText>
           </Typography>
           <Fade left>
-            <Grid container className={classes.title}>
+            <Grid container className={classes.itemContainer}>
               <Grid item xs={12} className={classes.item}>
                 <Paper elevation={12} className={classes.paper}>
-                  <Typography variant='h5' className={classes.title}>
+                  <Typography variant='h5' className={classes.subTitle}>
                     {' '}
                     Frontend{' '}
                   </Typography>
@@ -118,10 +138,10 @@ export const Stacks = () => {
             </Grid>
           </Fade>
           <Fade right>
-            <Grid container className={classes.title}>
+            <Grid container className={classes.itemContainer}>
               <Grid item xs={12} className={classes.item}>
                 <Paper elevation={12} className={classes.paper}>
-                  <Typography variant='h5' className={classes.title}>
+                  <Typography variant='h5' className={classes.subTitle}>
                     {' '}
                     Backend{' '}
                   </Typography>
@@ -152,15 +172,17 @@ export const Stacks = () => {
             <Grid container>
               <Grid item xs={12} className={classes.item}>
                 <Paper elevation={12} className={classes.paper}>
-                  <Typography
-                    variant='h5'
-                    component='span'
-                    className={clsx(classes.loading, 'loading')}
-                  >
-                    Ongoing
-                  </Typography>
+                  <Box className={classes.ongoing}>
+                    <Typography
+                      variant='h5'
+                      component='span'
+                      className={clsx(classes.loading, 'loading')}
+                    >
+                      Ongoing
+                    </Typography>
+                  </Box>
                   <Box mt={3} style={{ textAlign: 'center' }}>
-                    {backend.map((i) => (
+                    {ongoing.map((i) => (
                       <Chip
                         variant='outlined'
                         className={classes.list}
@@ -186,6 +208,6 @@ export const Stacks = () => {
           </Fade>
         </Container>
       </Grid>
-    </div>
+    </Paper>
   )
 }

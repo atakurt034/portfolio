@@ -4,6 +4,7 @@ import { TypeWriter } from '../../components/typewriter/Typewriter'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import './aStyles.css'
+
 import { Fade } from '../../components/Transitions'
 
 const useStyles = makeStyles((theme) => ({

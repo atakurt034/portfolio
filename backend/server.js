@@ -4,15 +4,20 @@ import colors from 'colors'
 import morgan from 'morgan'
 
 import users from './routes/userRoutes.js'
+import projects from './routes/projectRoutes.js'
+
+import connectDB from './config/db.js'
 
 const app = express()
 dotenv.config()
+connectDB()
 
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
 
 app.use('/api/users', users)
+app.use('/api/projects', projects)
 
 app.get('/', (req, res) => {
   res.send('Server running')
