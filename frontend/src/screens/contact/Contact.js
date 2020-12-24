@@ -69,9 +69,10 @@ export const Contact = () => {
   const [open, setOpen] = useState(false)
 
   const messageHandler = (params) => {
-    window.location.href = '#message'
     setOpen(!open)
+    window.location.href = '#message'
   }
+
   const text = ['Please', "don't", 'hesistate', 'to', 'contact', 'me']
   const arrayText = [...text.join(' ')]
 
@@ -97,49 +98,12 @@ export const Contact = () => {
             </Fade>
           </span>
         ))}
-        {/* <Fade top cascade>
-          Please don't hesistate to contact me{'   '}
-        </Fade> */}
         <Jump forever={true} duration={4000}>
           <EmojiPeopleIcon color='inherit' />
         </Jump>
       </Typography>
       <Divider />
       <Grid container justify='center' className={classes.boxContainer}>
-        <LightSpeed>
-          <Box className={classes.box}>
-            <a href='tel:+639087580821' className={classes.link}>
-              <Button
-                variant='contained'
-                size='large'
-                className={classes.button}
-              >
-                <PhoneAndroid />
-              </Button>
-              <Box m={2}>
-                <Typography>Mobile No.</Typography>
-                <Typography variant='caption'>(+63)09087580821</Typography>
-              </Box>
-            </a>
-          </Box>
-        </LightSpeed>
-        <LightSpeed delay={1000}>
-          <Box className={classes.box}>
-            <a href='mailto:atakurt034@gmail.com' className={classes.link}>
-              <Button
-                variant='contained'
-                size='large'
-                className={classes.button}
-              >
-                <Mail />
-              </Button>
-              <Box m={2}>
-                <Typography>Email</Typography>
-                <Typography variant='caption'>atakurt034@gmail.com</Typography>
-              </Box>
-            </a>
-          </Box>
-        </LightSpeed>
         <LightSpeed delay={2000}>
           <Box className={classes.box}>
             <a
