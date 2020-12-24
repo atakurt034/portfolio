@@ -16,7 +16,7 @@ import DividerText from '../../components/DividerWithText'
 import { Messenger } from '../../components/MessageForm'
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople'
 
-import { LightSpeed } from 'react-reveal'
+import { LightSpeed, Fade } from 'react-reveal'
 import Jump from 'react-reveal/Jump'
 
 const useStyles = makeStyles((theme) => ({
@@ -69,16 +69,37 @@ export const Contact = () => {
   const [open, setOpen] = useState(false)
 
   const messageHandler = (params) => {
+    window.location.href = '#message'
     setOpen(!open)
   }
+  const text = ['Please', "don't", 'hesistate', 'to', 'contact', 'me']
+  const arrayText = [...text.join(' ')]
 
   return (
     <Paper id='contact' className={classes.paperWrapper}>
-      <Typography variant='h5' className={classes.mainTitle}>
+      <Typography component='div' variant='h5' className={classes.mainTitle}>
         <DividerText>Contact Me</DividerText>
       </Typography>
-      <Typography gutterBottom variant='body1' className={classes.text}>
-        Please don't hesistate to contact me{'   '}
+      <Typography
+        component='div'
+        gutterBottom
+        variant='body1'
+        className={classes.text}
+      >
+        {arrayText.map((letter, index) => (
+          <span key={index}>
+            <Fade
+              cascade
+              top
+              delay={500 + index * Math.floor(Math.random() * 150)}
+            >
+              {letter}
+            </Fade>
+          </span>
+        ))}
+        {/* <Fade top cascade>
+          Please don't hesistate to contact me{'   '}
+        </Fade> */}
         <Jump forever={true} duration={4000}>
           <EmojiPeopleIcon color='inherit' />
         </Jump>
@@ -102,7 +123,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed>
+        <LightSpeed delay={1000}>
           <Box className={classes.box}>
             <a href='mailto:atakurt034@gmail.com' className={classes.link}>
               <Button
@@ -119,7 +140,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed>
+        <LightSpeed delay={2000}>
           <Box className={classes.box}>
             <a
               href='https://twitter.com/KAVG034?ref_src=twsrc%5Etfw'
@@ -141,7 +162,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed>
+        <LightSpeed delay={3000}>
           <Box className={classes.box}>
             <a
               href='https://www.facebook.com/kurt.gee.14/'
@@ -165,7 +186,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed>
+        <LightSpeed delay={4000}>
           <Box className={classes.box}>
             <Button
               variant='contained'

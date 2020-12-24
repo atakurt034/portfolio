@@ -25,7 +25,7 @@ import DiverText from '../../components/DividerWithText'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 
-import { Rotate, Bounce } from 'react-reveal'
+import { Rotate, Bounce, Zoom } from 'react-reveal'
 
 const useStyles = makeStyles((theme) => ({
   projects: {
@@ -103,41 +103,50 @@ export const Project = ({ history }) => {
           ) : error ? (
             <Message variant='error'>{error}</Message>
           ) : (
-            projects.map((project) => (
-              <Grid key={project.name} item xs={12} md={6} lg={4}>
-                <Rotate>
+            projects.map((project, index) => (
+              <React.Fragment key={index}>
+                <Grid item xs={12} md={6} lg={4}>
                   <Tooltip
                     placement='top'
                     arrow={true}
                     title='Click Image to go to the site'
                   >
-                    <Card style={{ borderRadius: 10 }} className={classes.root}>
-                      <CardActionArea onClick={() => clickHandler(project.url)}>
-                        <CardMedia image={project.image} component='img' />
-                        <CardContent className={classes.description}>
-                          <Typography variant='h5' className={classes.name}>
-                            {project.name}
-                          </Typography>
-                          <Typography variant='body1'>
-                            {project.description}
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                      <CardActions>
-                        <Button
-                          style={{ margin: 'auto' }}
-                          variant='contained'
-                          size='small'
-                          startIcon={<GitHubIcon />}
-                          onClick={() => gitHandler(project.github)}
+                    <div>
+                      <Zoom delay={index * 500}>
+                        <Card
+                          style={{ borderRadius: 10 }}
+                          className={classes.root}
                         >
-                          Repository
-                        </Button>
-                      </CardActions>
-                    </Card>
+                          <CardActionArea
+                            onClick={() => clickHandler(project.url)}
+                          >
+                            <CardMedia image={project.image} component='img' />
+                            <CardContent className={classes.description}>
+                              <Typography variant='h5' className={classes.name}>
+                                {project.name}
+                              </Typography>
+                              <Typography variant='body1'>
+                                {project.description}
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                          <CardActions>
+                            <Button
+                              style={{ margin: 'auto' }}
+                              variant='contained'
+                              size='small'
+                              startIcon={<GitHubIcon />}
+                              onClick={() => gitHandler(project.github)}
+                            >
+                              Repository
+                            </Button>
+                          </CardActions>
+                        </Card>
+                      </Zoom>
+                    </div>
                   </Tooltip>
-                </Rotate>
-              </Grid>
+                </Grid>
+              </React.Fragment>
             ))
           )}
         </Grid>

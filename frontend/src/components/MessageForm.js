@@ -7,15 +7,18 @@ import {
   makeStyles,
   Paper,
 } from '@material-ui/core'
+
+import SendIcon from '@material-ui/icons/Send'
+
 import { useDispatch } from 'react-redux'
 
 import Message from './Message'
 import Loader from './Loader'
 
 const useStyles = makeStyles((theme) => ({
-  form: {},
   paperWrapper: {
     padding: 20,
+    borderRadius: 10,
   },
 }))
 
@@ -69,11 +72,13 @@ export const Messenger = ({ location, history }) => {
           />
 
           <Button
+            id='message'
             type='submit'
             fullWidth
             variant='contained'
-            color='primary'
+            color='default'
             size='large'
+            startIcon={<SendIcon />}
             className={classes.submit}
           >
             Submit
