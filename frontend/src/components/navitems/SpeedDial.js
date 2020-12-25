@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
       right: theme.spacing(3),
     },
     '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
-      top: theme.spacing(2),
-      left: theme.spacing(2),
+      top: theme.spacing(4),
+      left: theme.spacing(3),
     },
   },
   color: {
@@ -56,6 +56,7 @@ const SpeedDials = ({ history }) => {
   return (
     <div className={classes.root}>
       <SpeedDial
+        direction='right'
         ariaLabel='SpeedDial MenuIcon'
         className={classes.speedDial}
         icon={!open ? <MenuIcon /> : <MenuOpenIcon />}

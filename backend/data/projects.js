@@ -30,6 +30,21 @@ const projects = [
     github: 'https://github.com/atakurt034/todoapp.git',
     url: 'https://todolist034.herokuapp.com/',
   },
+  {
+    name: 'Blog',
+    image: '/images/blog.jpg',
+    description: 'A blog site rendered with ejs and mongodb as the database',
+    github: 'https://github.com/atakurt034/blog.git',
+    url: 'https://blog034.herokuapp.com/',
+  },
+  {
+    name: 'Simon Says',
+    image: '/images/simon.jpg',
+    description:
+      'A game design with hmtl, css and javascript.The game is for people with good memory.The mechanics of the game is to follow the sequence of colors being activated.',
+    github: 'https://github.com/atakurt034/simonsays.git',
+    url: 'https://simonsays034.herokuapp.com/',
+  },
 ]
 
 export default projects

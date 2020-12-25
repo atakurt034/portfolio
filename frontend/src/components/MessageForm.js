@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ModalLoader } from './ModalLoader'
 import { ModalMessage } from './ModalMessage'
 import { ContactModal } from './ContactModal'
+import { Fade } from 'react-reveal'
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const Messenger = ({ location, history }) => {
+export const MessageForm = ({ location, history }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const [errorInput, setErrorInput] = useState('')
@@ -95,78 +96,79 @@ export const Messenger = ({ location, history }) => {
       ) : error ? (
         <ModalMessage variant='error'>{error}</ModalMessage>
       ) : (
-        <Paper elevation={12} className={classes.paperWrapper}>
-          <Container component='main' maxWidth='xs'>
-            <form
-              onSubmit={submitHandler}
-              className={classes.form}
-              action='mailto:atakurt034@gmail.com'
-              method='POST'
-              encType='multipart/form-data'
-            >
-              <TextField
-                type='text'
-                variant='outlined'
-                margin='normal'
-                required
-                fullWidth
-                id='name'
-                label='Full Name'
-                autoFocus
-                name='name'
-                value={name}
-                onChange={handleChange}
-              />
-              <TextField
-                type='email'
-                variant='outlined'
-                margin='normal'
-                required
-                fullWidth
-                label='Email Address'
-                name='email'
-                value={email}
-                onChange={handleChange}
-              />
-              <TextField
-                type='text'
-                variant='outlined'
-                margin='normal'
-                required
-                fullWidth
-                label='Subject'
-                name='subject'
-                value={subject}
-                onChange={handleChange}
-              />
-              <TextField
-                type='text'
-                variant='outlined'
-                margin='normal'
-                required
-                fullWidth
-                label='Message'
-                multiline
-                rows={5}
-                name='message'
-                value={message}
-                onChange={handleChange}
-              />
-
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                color='default'
-                size='large'
-                startIcon={<SendIcon />}
-                className={classes.submit}
+        <Fade delay={200} duration={500}>
+          <Paper elevation={12} className={classes.paperWrapper}>
+            <Container component='main' maxWidth='xs'>
+              <form
+                onSubmit={submitHandler}
+                className={classes.form}
+                action='mailto:atakurt034@gmail.com'
+                method='POST'
+                encType='multipart/form-data'
               >
-                Submit
-              </Button>
-            </form>
-          </Container>
-        </Paper>
+                <TextField
+                  type='text'
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  id='name'
+                  label='Full Name'
+                  name='name'
+                  value={name}
+                  autoFocus
+                  onChange={handleChange}
+                />
+                <TextField
+                  type='email'
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  label='Email Address'
+                  name='email'
+                  value={email}
+                  onChange={handleChange}
+                />
+                <TextField
+                  type='text'
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  label='Subject'
+                  name='subject'
+                  value={subject}
+                  onChange={handleChange}
+                />
+                <TextField
+                  type='text'
+                  variant='outlined'
+                  margin='normal'
+                  required
+                  fullWidth
+                  label='Message'
+                  multiline
+                  rows={5}
+                  name='message'
+                  value={message}
+                  onChange={handleChange}
+                />
+
+                <Button
+                  type='submit'
+                  fullWidth
+                  variant='contained'
+                  color='default'
+                  size='large'
+                  startIcon={<SendIcon />}
+                >
+                  Submit
+                </Button>
+              </form>
+            </Container>
+          </Paper>
+        </Fade>
       )}
     </>
   )

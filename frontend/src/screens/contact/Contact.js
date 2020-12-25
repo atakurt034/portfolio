@@ -13,7 +13,7 @@ import {
 import { Edit, Twitter, Facebook } from '@material-ui/icons'
 
 import DividerText from '../../components/DividerWithText'
-import { Messenger } from '../../components/MessageForm'
+import { MessageForm } from '../../components/MessageForm'
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople'
 
 import { LightSpeed, Fade } from 'react-reveal'
@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 20,
+    lineHeight: 10,
   },
   messengerContainer: {
     margin: 20,
@@ -129,7 +130,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed delay={3000} right>
+        <Fade delay={3000} bottom>
           <Box className={classes.box}>
             <a
               href='https://www.facebook.com/kurt.gee.14/'
@@ -152,8 +153,8 @@ export const Contact = () => {
               </Box>
             </a>
           </Box>
-        </LightSpeed>
-        <LightSpeed delay={4000} left>
+        </Fade>
+        <LightSpeed delay={4000} right>
           <Box className={classes.box}>
             <Button
               variant='contained'
@@ -176,9 +177,7 @@ export const Contact = () => {
             justify='center'
             className={classes.messengerContainer}
           >
-            <LightSpeed>
-              <Messenger />
-            </LightSpeed>
+            <MessageForm />
           </Grid>
         )}
       </Grid>
