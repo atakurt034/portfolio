@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProjects } from '../../actions/projectActions'
 
@@ -18,14 +18,13 @@ import {
   makeStyles,
   Paper,
   Typography,
-  Box,
 } from '@material-ui/core'
 
 import DiverText from '../../components/DividerWithText'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 
-import { Rotate, Bounce, Zoom } from 'react-reveal'
+import { Bounce, Zoom } from 'react-reveal'
 
 const useStyles = makeStyles((theme) => ({
   projects: {
@@ -87,13 +86,20 @@ export const Project = ({ history }) => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                fontStyle: 'italic',
               }}
             >
               Click Images to go to the site{' '}
             </Typography>
             <Bounce forever duration={1000}>
               {' '}
-              {<FavoriteIcon fontSize='default' color='error' />}
+              {
+                <FavoriteIcon
+                  fontSize='default'
+                  color='error'
+                  style={{ marginLeft: 5 }}
+                />
+              }
             </Bounce>
           </Bounce>
         </Grid>

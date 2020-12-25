@@ -51,8 +51,6 @@ export const Messenger = ({ location, history }) => {
     return re.test(String(email).toLowerCase())
   }
 
-  console.log(data)
-
   const submitHandler = (event) => {
     event.preventDefault()
     if (email) {
@@ -80,6 +78,7 @@ export const Messenger = ({ location, history }) => {
       if (success) {
         setOpen(true)
         dispatch({ type: CONTACT_SEND_MAIL_RESET })
+        setMail({ name: '', email: '', subject: '', message: '' })
       }
     }
     if (data) {

@@ -10,7 +10,7 @@ import {
   Divider,
 } from '@material-ui/core'
 
-import { Mail, PhoneAndroid, Edit, Twitter, Facebook } from '@material-ui/icons'
+import { Edit, Twitter, Facebook } from '@material-ui/icons'
 
 import DividerText from '../../components/DividerWithText'
 import { Messenger } from '../../components/MessageForm'
@@ -92,19 +92,22 @@ export const Contact = () => {
             <Fade
               cascade
               top
-              delay={500 + index * Math.floor(Math.random() * 150)}
+              delay={
+                Math.floor(Math.random() * 10) +
+                index * Math.floor(Math.random() * 150)
+              }
             >
-              {letter}
+              <i>{letter}</i>
             </Fade>
           </span>
         ))}
         <Jump forever={true} duration={4000}>
-          <EmojiPeopleIcon color='inherit' />
+          <EmojiPeopleIcon color='inherit' style={{ marginLeft: 5 }} />
         </Jump>
       </Typography>
       <Divider />
       <Grid container justify='center' className={classes.boxContainer}>
-        <LightSpeed delay={2000}>
+        <LightSpeed delay={2000} left>
           <Box className={classes.box}>
             <a
               href='https://twitter.com/KAVG034?ref_src=twsrc%5Etfw'
@@ -126,7 +129,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed delay={3000}>
+        <LightSpeed delay={3000} right>
           <Box className={classes.box}>
             <a
               href='https://www.facebook.com/kurt.gee.14/'
@@ -150,7 +153,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <LightSpeed delay={4000}>
+        <LightSpeed delay={4000} left>
           <Box className={classes.box}>
             <Button
               variant='contained'
@@ -173,7 +176,9 @@ export const Contact = () => {
             justify='center'
             className={classes.messengerContainer}
           >
-            <Messenger />
+            <LightSpeed>
+              <Messenger />
+            </LightSpeed>
           </Grid>
         )}
       </Grid>

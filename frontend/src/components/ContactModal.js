@@ -2,9 +2,10 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
-import Fade from '@material-ui/core/Fade'
 import { Box, Button, Container, Paper, Typography } from '@material-ui/core'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp'
+
+import RubberBand from 'react-reveal/RubberBand'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -51,7 +52,7 @@ export const ContactModal = ({ open, handleClose }) => {
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <RubberBand>
           <Container maxWidth='sm' className={classes.container}>
             <Paper elevation={12} className={classes.paper}>
               <Typography variant='h5' className={classes.text}>
@@ -74,7 +75,7 @@ export const ContactModal = ({ open, handleClose }) => {
               </Box>
             </Paper>
           </Container>
-        </Fade>
+        </RubberBand>
       </Modal>
     </div>
   )

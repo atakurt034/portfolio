@@ -11,9 +11,7 @@ import CallIcon from '@material-ui/icons/Call'
 import MenuIcon from '@material-ui/icons/Menu'
 import MenuOpenIcon from '@material-ui/icons/MenuOpen'
 
-import moduleName from 'module'
 import { withRouter } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {

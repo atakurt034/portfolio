@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, CardMedia, Grid, Container, Box } from '@material-ui/core'
+import { makeStyles, CardMedia, Grid, Container } from '@material-ui/core'
 import { TypeWriter } from '../../components/typewriter/Typewriter'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import './aStyles.css'
 
-import { Fade } from '../../components/Transitions'
+import { Fade } from 'react-reveal'
 
 const useStyles = makeStyles((theme) => ({
   about: {
@@ -37,7 +37,7 @@ export const About = () => {
   const [load, setLoad] = useState(false)
 
   const setImage = useSelector((state) => state.setImage)
-  const { image, loading, error } = setImage
+  const { image } = setImage
 
   useEffect(() => {
     if (image) {
