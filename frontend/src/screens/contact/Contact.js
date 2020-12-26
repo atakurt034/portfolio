@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',
+    borderRadius: 0,
   },
   mainTitle: {
     width: 'fit-content',

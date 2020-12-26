@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'flex-end',
     padding: 15,
+    borderRadius: 0,
   },
   item: {
     textAlign: 'center',

@@ -11,14 +11,20 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase())
 }
 
+const updateEmailCount = asyncHandler(async (req, res) => {
+  await Server.findByIdAndUpdate(
+    process.env.SERVER_ID,
+    { $inc: { emailsSentCount: 1 } },
+    { new: true }
+  )
+})
+
 export const sendMail = asyncHandler(async (req, res) => {
   try {
     const ttl = 3600000
     const { email, name, message, subject } = req.body
 
     const transport = {
-      //all of the configuration for making a site send an email.
-
       host: 'smtp.gmail.com',
       port: 587,
       secure: false,
@@ -27,13 +33,12 @@ export const sendMail = asyncHandler(async (req, res) => {
         pass: process.env.GMAIL_PASS,
       },
     }
+
     const transporter = nodemailer.createTransport(transport)
     transporter.verify((error, success) => {
       if (error) {
-        //if error happened code ends here
         console.error(error)
       } else {
-        //this means success
         console.log('users ready to mail myself')
       }
     })
@@ -79,6 +84,7 @@ export const sendMail = asyncHandler(async (req, res) => {
                 res.json({ status: 'success', valid: true, data: updated })
               }
             })
+            updateEmailCount()
           } else {
             res.json({ valid: false, data: user })
           }
@@ -87,7 +93,7 @@ export const sendMail = asyncHandler(async (req, res) => {
             name: name,
             email: email,
             message: message,
-            time: now.getTime(),
+            time: now.getTime() + ttl,
           })
           if (createdUser) {
             transporter.sendMail(mail, (err, data) => {
@@ -101,45 +107,12 @@ export const sendMail = asyncHandler(async (req, res) => {
                 res.json({ status: 'success', valid: true, data: createdUser })
               }
             })
+            updateEmailCount()
           }
         }
-
-        await Server.findByIdAndUpdate(
-          process.env.SERVER_ID,
-          { $inc: { emailsSentCount: 1 } },
-          { new: true }
-        )
       }
     }
   } catch (error) {
     console.log(error)
-  }
-})
-
-export const addEmailTime = asyncHandler(async (req, res) => {
-  const { name, email, message } = req.body
-  const now = new Date()
-  let user = await User.find({
-    email: email,
-  })
-
-  if (user.length > 0) {
-    if (user.time < now.getTime()) {
-      user = { time: now.getTime() + ttl, email, message }
-      updateUser = user.save()
-      res.json({ status: 'success', data: updateUser })
-    } else {
-      res.json({ status: 'fail', data: user })
-    }
-  } else {
-    const createdUser = await User.create({
-      name: name,
-      email: email,
-      message: message,
-      time: now.getTime(),
-    })
-    if (createdUser) {
-      res.status(201).json({ status: 'success', data: createdUser })
-    }
   }
 })

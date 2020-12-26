@@ -120,6 +120,7 @@ export const Project = ({ history }) => {
                     <div>
                       <Zoom cascade delay={index * 200}>
                         <Card
+                          elevation={12}
                           style={{ borderRadius: 10 }}
                           className={classes.root}
                         >
