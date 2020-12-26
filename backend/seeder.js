@@ -2,10 +2,11 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import colors from 'colors'
 
-import users from './data/users.js'
 import projects from './data/projects.js'
+import server from './data/server.js'
 
 import Projects from './models/projects.js'
+import Server from './models/serverStats.js'
 import User from './models/users.js'
 
 import connectDB from './config/db.js'
@@ -18,6 +19,7 @@ const destroyData = async () => {
   try {
     await Projects.deleteMany()
     await User.deleteMany()
+    await Server.deleteMany()
 
     console.log('Data Destroyed!'.red.inverse)
     process.exit()
@@ -30,11 +32,10 @@ const destroyData = async () => {
 const importData = async () => {
   try {
     await Projects.deleteMany()
-    await User.deleteMany()
-
-    await User.insertMany(users)
 
     await Projects.insertMany(projects)
+
+    await Server.insertMany(server)
 
     console.log('Data Imported'.green.inverse)
     process.exit()

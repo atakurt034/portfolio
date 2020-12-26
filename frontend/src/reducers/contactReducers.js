@@ -10,7 +10,12 @@ export const contactSendMailReducer = (state = {}, action) => {
     case CONTACT_SEND_MAIL_REQUEST:
       return { loading: true, success: false }
     case CONTACT_SEND_MAIL_SUCCESS:
-      return { loading: false, success: true, data: action.payload }
+      return {
+        loading: false,
+        success: true,
+        status: action.payload.status,
+        data: action.payload.data,
+      }
     case CONTACT_SEND_MAIL_FAIL:
       return { loading: false, error: action.payload }
     case CONTACT_SEND_MAIL_RESET:

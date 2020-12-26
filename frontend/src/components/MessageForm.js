@@ -36,11 +36,10 @@ export const MessageForm = ({ location, history }) => {
     subject: '',
     message: '',
   })
+  const { name, email, subject, message } = mail
 
   const contactSendMail = useSelector((state) => state.contactSendMail)
-  const { data, loading, error, success } = contactSendMail
-
-  const { name, email, subject, message } = mail
+  const { loading, error, success, status } = contactSendMail
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -63,7 +62,7 @@ export const MessageForm = ({ location, history }) => {
             name,
             email,
             subject,
-            text: message,
+            message,
           })
         )
       }
@@ -72,20 +71,19 @@ export const MessageForm = ({ location, history }) => {
 
   const closeHandler = () => {
     setOpen(false)
+    dispatch({ type: CONTACT_SEND_MAIL_RESET })
   }
-
   useEffect(() => {
-    if (!loading && !error && data) {
+    if (!loading && !error) {
       if (success) {
         setOpen(true)
-        dispatch({ type: CONTACT_SEND_MAIL_RESET })
         setMail({ name: '', email: '', subject: '', message: '' })
       }
     }
-    if (data) {
-      if (data.status === 'invalid email') setErrorInput(data.status)
+    if (status) {
+      if (status === 'invalid email') setErrorInput(status)
     }
-  }, [data, loading, error, dispatch, success])
+  }, [loading, error, dispatch, success, status])
 
   return (
     <>

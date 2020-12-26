@@ -118,7 +118,7 @@ export const Project = ({ history }) => {
                     title='Click Image to go to the site'
                   >
                     <div>
-                      <Zoom delay={index * 200}>
+                      <Zoom cascade delay={index * 200}>
                         <Card
                           style={{ borderRadius: 10 }}
                           className={classes.root}

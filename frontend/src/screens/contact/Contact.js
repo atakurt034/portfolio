@@ -92,6 +92,7 @@ export const Contact = () => {
           <span key={index}>
             <Fade
               cascade
+              collapse
               top
               delay={
                 Math.floor(Math.random() * 10) +
@@ -108,7 +109,7 @@ export const Contact = () => {
       </Typography>
       <Divider />
       <Grid container justify='center' className={classes.boxContainer}>
-        <LightSpeed delay={2000} left>
+        <LightSpeed delay={2000} cascade left>
           <Box className={classes.box}>
             <a
               href='https://twitter.com/KAVG034?ref_src=twsrc%5Etfw'
@@ -130,7 +131,7 @@ export const Contact = () => {
             </a>
           </Box>
         </LightSpeed>
-        <Fade delay={3000} bottom>
+        <Fade delay={3000} cascade top>
           <Box className={classes.box}>
             <a
               href='https://www.facebook.com/kurt.gee.14/'
@@ -154,7 +155,7 @@ export const Contact = () => {
             </a>
           </Box>
         </Fade>
-        <LightSpeed delay={4000} right>
+        <LightSpeed delay={4000} cascade right>
           <Box className={classes.box}>
             <Button
               variant='contained'

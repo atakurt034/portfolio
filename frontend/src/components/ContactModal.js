@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import { Box, Button, Container, Paper, Typography } from '@material-ui/core'
-import ThumbUpIcon from '@material-ui/icons/ThumbUp'
+
+import green from '@material-ui/core/colors/green'
+
+import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import ErrorIcon from '@material-ui/icons/Error'
+
+import { useSelector } from 'react-redux'
 
 import RubberBand from 'react-reveal/RubberBand'
 
@@ -26,17 +32,43 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
-  text: {
+  title: {
+    padding: 5,
+    margin: 5,
+  },
+  body: {
     padding: 5,
     margin: 5,
   },
   box: {
     textAlign: 'center',
   },
+  textbox: {
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
+  icon: {
+    color: green[700],
+  },
+  button: {
+    width: 100,
+  },
 }))
 
 export const ContactModal = ({ open, handleClose }) => {
   const classes = useStyles()
+  const [valid, setValid] = useState(false)
+
+  const contactSendMail = useSelector((state) => state.contactSendMail)
+  const { data, loading, error, status } = contactSendMail
+
+  useEffect(() => {
+    if (data) {
+      if (status === 'success') {
+        setValid(true)
+      }
+    }
+  }, [data, loading, error, status])
 
   return (
     <div>
@@ -55,12 +87,20 @@ export const ContactModal = ({ open, handleClose }) => {
         <RubberBand>
           <Container maxWidth='sm' className={classes.container}>
             <Paper elevation={12} className={classes.paper}>
-              <Typography variant='h5' className={classes.text}>
-                Successfully sent message
-              </Typography>
-              <Typography variant='body2' className={classes.text}>
-                Thank you for contacting me. I will reply to you as soon as I
-                can. Have a nice day.
+              <Box className={classes.textbox}>
+                {valid ? (
+                  <CheckCircleIcon fontSize='large' className={classes.icon} />
+                ) : (
+                  <ErrorIcon fontSize='large' color='error' />
+                )}
+                <Typography variant='h5' className={classes.title}>
+                  {valid ? 'Message sent' : 'Message sending failed'}
+                </Typography>
+              </Box>
+              <Typography variant='body2' className={classes.body}>
+                {valid
+                  ? 'Thank you for contacting me. I will reply to you as soon as I can. Have a nice day.'
+                  : 'Only 1 message per hour is allowed. Please try again later. Thank you'}
               </Typography>
               <Box className={classes.box}>
                 <Button
@@ -68,7 +108,6 @@ export const ContactModal = ({ open, handleClose }) => {
                   variant='contained'
                   onClick={handleClose}
                   className={classes.button}
-                  endIcon={<ThumbUpIcon color='inherit' fontSize='small' />}
                 >
                   OK
                 </Button>

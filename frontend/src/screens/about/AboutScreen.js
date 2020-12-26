@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { makeStyles, CardMedia, Grid, Container } from '@material-ui/core'
 import { TypeWriter } from '../../components/typewriter/Typewriter'
-import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import './aStyles.css'
 
@@ -36,14 +35,9 @@ export const About = () => {
   const [img, setImg] = useState('/images/profile.jpg')
   const [load, setLoad] = useState(false)
 
-  const setImage = useSelector((state) => state.setImage)
-  const { image } = setImage
-
-  useEffect(() => {
-    if (image) {
-      setImg(image)
-    }
-  }, [image])
+  const imageHandler = (sentImage) => {
+    setImg(sentImage)
+  }
 
   return (
     <div id='about'>
@@ -62,6 +56,7 @@ export const About = () => {
             <Grid item xs={12} md={6} className={classes.typewriter}>
               <Container>
                 <TypeWriter
+                  image={imageHandler}
                   enter={() => setLoad(true)}
                   exit={() => setLoad(false)}
                 />

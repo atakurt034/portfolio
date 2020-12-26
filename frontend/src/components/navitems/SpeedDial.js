@@ -66,14 +66,9 @@ const SpeedDials = ({ history }) => {
         open={open}
       >
         <SpeedDialAction
-          icon={<CallIcon />}
-          tooltipTitle={'Contact Me'}
-          onClick={() => clickHandler('contact')}
-        />
-        <SpeedDialAction
-          icon={<FolderIcon />}
-          tooltipTitle={'Projects'}
-          onClick={() => clickHandler('project')}
+          icon={<HomeIcon />}
+          tooltipTitle={'About'}
+          onClick={() => clickHandler('about')}
         />
 
         <SpeedDialAction
@@ -83,9 +78,15 @@ const SpeedDials = ({ history }) => {
         />
 
         <SpeedDialAction
-          icon={<HomeIcon />}
-          tooltipTitle={'About'}
-          onClick={() => clickHandler('about')}
+          icon={<FolderIcon />}
+          tooltipTitle={'Projects'}
+          onClick={() => clickHandler('project')}
+        />
+
+        <SpeedDialAction
+          icon={<CallIcon />}
+          tooltipTitle={'Contact Me'}
+          onClick={() => clickHandler('contact')}
         />
       </SpeedDial>
     </div>

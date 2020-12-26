@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react'
 
 import Typewriter from 'typewriter-effect'
-import { setImage } from '../../actions/aboutActions'
 import { useDispatch } from 'react-redux'
 
 import './twStyles.css'
 
-export const TypeWriter = ({ exit, enter }) => {
+export const TypeWriter = ({ exit, enter, image }) => {
   const dispatch = useDispatch()
   const [change, setChange] = useState(0)
 
   useEffect(() => {
     if (change === 1) {
-      dispatch(setImage('/images/profile2.jpg'))
+      image('/images/profile2.jpg')
     } else if (change === 2) {
-      dispatch(setImage('/images/profile3.jpg'))
+      image('/images/profile3.jpg')
     } else {
-      dispatch(setImage('/images/profile.jpg'))
+      image('/images/profile.jpg')
     }
-  }, [dispatch, change])
+  }, [dispatch, change, image])
 
   return (
     <>
