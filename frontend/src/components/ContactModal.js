@@ -99,7 +99,7 @@ export const ContactModal = ({ open, handleClose }) => {
               </Box>
               <Typography variant='body2' className={classes.body}>
                 {valid
-                  ? 'Thank you for contacting me. I will reply to you as soon as I can. Have a nice day.'
+                  ? 'Thank you for contacting me. I will reply to you as soon as I can. Have a nice day!'
                   : 'Only 1 message per hour is allowed. Please try again later. Thank you'}
               </Typography>
               <Box className={classes.box}>

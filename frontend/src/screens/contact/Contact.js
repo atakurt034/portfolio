@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     textAlign: 'center',
+    margin: 'auto',
+    padding: 20,
+    width: 140,
   },
   link: {
     textTransform: 'none',
@@ -59,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 20,
-    lineHeight: 10,
+    lineHeight: 4,
   },
   messengerContainer: {
     margin: 20,
@@ -92,6 +95,7 @@ export const Contact = () => {
         {arrayText.map((letter, index) => (
           <span key={index}>
             <Fade
+              wait={40}
               cascade
               collapse
               top
@@ -147,7 +151,7 @@ export const Contact = () => {
               >
                 <Facebook color='primary' />
               </Button>
-              <Box m={2}>
+              <Box m={2} style={{ margin: '18px auto' }}>
                 <Typography>Facebook</Typography>
                 <Typography variant='caption'>
                   facebook.com/kurt.gee.14

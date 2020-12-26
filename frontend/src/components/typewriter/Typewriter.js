@@ -29,36 +29,33 @@ export const TypeWriter = ({ exit, enter, image }) => {
             .callFunction(() => setChange(0))
             .pauseFor(300)
             .callFunction(() => enter())
+            .typeString('<span class="string">Hi,')
+            .pauseFor(500)
             .typeString(
-              '<span class="string">Hi my name is <span class="name">Kurt Anthony Golingay</span></span>'
+              '<span class="string"> my name is <span class="name">Anthony Golingay</span></span>'
             )
             .pauseFor(1500)
             .deleteAll()
             .typeString(
-              '<span class="string">I am a fullstack developer</span>'
+              '<span class="string">I am a fullstack developer.</span>'
             )
             .pauseFor(1500)
             .callFunction(() => exit())
             .pauseFor(500)
-            .deleteChars(20)
+            .deleteChars(21)
             .callFunction(() => setChange(1))
             .callFunction(() => enter())
             .typeString(
-              '<span class="string">lso a <span class="blue">nurse</span> but my passion is</span>'
+              '<span class="string">lso a <span class="blue">registered nurse</span> but my passion is:</span>'
             )
+            .pauseFor(500)
             .deleteAll()
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
-            .pauseFor(100)
-            .typeString('<span class="string">.</span>')
             .typeString('<span class="red string">CODING</span>')
             .pauseFor(1000)
             .deleteAll()
             .pauseFor(500)
             .typeString(
-              '<span class="string"> <span class="red">LEARNING</span></span>'
+              '<span class="string"> <span class="red">RESEARCH</span></span>'
             )
             .pauseFor(500)
             .callFunction(() => exit())
@@ -68,7 +65,7 @@ export const TypeWriter = ({ exit, enter, image }) => {
             .pauseFor(300)
             .callFunction(() => enter())
             .typeString(
-              '<span class="string">and <strong class="red">EATING</strong></span>'
+              '<span class="string">and <strong class="red">EATING.</strong></span>'
             )
             .pauseFor(2000)
             .callFunction(() => exit())
