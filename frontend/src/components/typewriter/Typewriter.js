@@ -27,13 +27,14 @@ export const TypeWriter = ({ exit, enter, image }) => {
           typewriter
             .pauseFor(500)
             .callFunction(() => setChange(0))
-            .pauseFor(300)
+            .pauseFor(500)
             .callFunction(() => enter())
             .typeString('<span class="string">Hi,')
             .pauseFor(500)
             .typeString(
-              '<span class="string"> my name is <span class="name">Anthony Golingay</span></span>'
+              '<span class="string"> my name is <span class="name">Anthony</span></span>'
             )
+
             .pauseFor(1500)
             .deleteAll()
             .typeString(
@@ -63,7 +64,7 @@ export const TypeWriter = ({ exit, enter, image }) => {
             .pauseFor(500)
             .deleteChars(8)
             .callFunction(() => setChange(2))
-            .pauseFor(300)
+            .pauseFor(500)
             .callFunction(() => enter())
             .typeString(
               '<span class="string">and <strong class="red">EATING.</strong></span>'
