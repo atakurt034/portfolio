@@ -44,7 +44,7 @@ export const About = () => {
       <Container maxWidth='md'>
         <div id='page' className={classes.about}>
           <Grid container>
-            <Grid item xs={12} md={6} className={classes.imagewrapper}>
+            <Grid item xs={12} sm={6} className={classes.imagewrapper}>
               <Fade in={load}>
                 <CardMedia
                   className={clsx(classes.image, 'image')}
@@ -53,7 +53,7 @@ export const About = () => {
                 />
               </Fade>
             </Grid>
-            <Grid item xs={12} md={6} className={classes.typewriter}>
+            <Grid item xs={12} sm={6} className={classes.typewriter}>
               <Container>
                 <TypeWriter
                   image={imageHandler}

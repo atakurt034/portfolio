@@ -114,7 +114,7 @@ export const Contact = () => {
       </Typography>
       <Divider />
       <Grid container justify='center' className={classes.boxContainer}>
-        <LightSpeed delay={2000} left>
+        <LightSpeed delay={2000} bottom>
           <Box className={classes.box}>
             <a
               href='https://twitter.com/KAVG034?ref_src=twsrc%5Etfw'
@@ -156,7 +156,7 @@ export const Contact = () => {
             </a>
           </Box>
         </Fade>
-        <LightSpeed delay={4000} right>
+        <LightSpeed delay={4000} bottom>
           <Box className={classes.box}>
             <Button
               variant='contained'
