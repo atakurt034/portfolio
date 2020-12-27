@@ -22,6 +22,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
 
+app.use('/api/users', users)
+app.use('/api/projects', projects)
+app.use('/api/contacts', contacs)
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
 
@@ -34,18 +38,11 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.use('/api/users', users)
-app.use('/api/projects', projects)
-app.use('/api/contacts', contacs)
-
 const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
   console.log(
-    `Server running on `.white.bold +
-      `${process.env.NODE_ENV}`.yellow.bold +
-      ` at port `.white.bold +
-      `${PORT}`.yellow.bold
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
