@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     borderRadius: '100%',
   },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'center',
+  },
 }))
 
 export const About = () => {
@@ -54,7 +59,7 @@ export const About = () => {
               </Fade>
             </Grid>
             <Grid item xs={12} sm={6} className={classes.typewriter}>
-              <Container>
+              <Container className={classes.container}>
                 <TypeWriter
                   image={imageHandler}
                   enter={() => setLoad(true)}
