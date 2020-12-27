@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export const Footer = (params) => {
   const classes = useStyles()
   return (
-    <Paper id='message' elevation={10} className={classes.footer}>
+    <Paper elevation={10} className={classes.footer}>
       <Grid container justify='center'>
         <Grid item xs={12} className={classes.item}>
           <Box component='span' mx={1}>

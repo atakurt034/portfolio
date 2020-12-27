@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     margin: 'auto',
     padding: 20,
-    width: 140,
+    width: 80,
   },
   link: {
     textTransform: 'none',
@@ -114,7 +114,7 @@ export const Contact = () => {
       </Typography>
       <Divider />
       <Grid container justify='center' className={classes.boxContainer}>
-        <LightSpeed delay={2000} cascade left>
+        <LightSpeed delay={2000} bottom>
           <Box className={classes.box}>
             <a
               href='https://twitter.com/KAVG034?ref_src=twsrc%5Etfw'
@@ -130,13 +130,12 @@ export const Contact = () => {
                 <Twitter color='primary' />
               </Button>
               <Box m={2}>
-                <Typography>Twitter</Typography>
-                <Typography variant='caption'>@KAVG034</Typography>
+                <Typography variant='caption'>Twitter</Typography>
               </Box>
             </a>
           </Box>
         </LightSpeed>
-        <Fade delay={3000} cascade top>
+        <Fade delay={3000} top>
           <Box className={classes.box}>
             <a
               href='https://www.facebook.com/kurt.gee.14/'
@@ -152,15 +151,12 @@ export const Contact = () => {
                 <Facebook color='primary' />
               </Button>
               <Box m={2} style={{ margin: '18px auto' }}>
-                <Typography>Facebook</Typography>
-                <Typography variant='caption'>
-                  facebook.com/kurt.gee.14
-                </Typography>
+                <Typography variant='caption'>Facebook</Typography>
               </Box>
             </a>
           </Box>
         </Fade>
-        <LightSpeed delay={4000} cascade right>
+        <LightSpeed delay={4000} bottom>
           <Box className={classes.box}>
             <Button
               variant='contained'
@@ -171,8 +167,7 @@ export const Contact = () => {
               <Edit color='error' />
             </Button>
             <Box m={2}>
-              <Typography>Message Me</Typography>
-              <Typography variant='caption'>Send Message</Typography>
+              <Typography variant='caption'>Message Me</Typography>
             </Box>
           </Box>
         </LightSpeed>

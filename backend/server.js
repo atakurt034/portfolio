@@ -11,6 +11,8 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 
 const app = express()
+const __dirname = path.resolve()
+
 dotenv.config()
 connectDB()
 
@@ -20,7 +22,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
 
-const __dirname = path.resolve()
+app.use('/api/users', users)
+app.use('/api/projects', projects)
+app.use('/api/contacts', contacs)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
@@ -34,22 +38,11 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.use('/api/users', users)
-app.use('/api/projects', projects)
-app.use('/api/contacts', contacs)
-
-app.get('/', (req, res) => {
-  res.send('Server running')
-})
-
 const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
   console.log(
-    `Server running on `.white.bold +
-      `${process.env.NODE_ENV}`.yellow.bold +
-      ` at port `.white.bold +
-      `${PORT}`.yellow.bold
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )

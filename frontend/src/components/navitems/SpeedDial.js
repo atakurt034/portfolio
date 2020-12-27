@@ -56,7 +56,7 @@ const SpeedDials = ({ history }) => {
   return (
     <div className={classes.root}>
       <SpeedDial
-        direction='right'
+        direction='down'
         ariaLabel='SpeedDial MenuIcon'
         className={classes.speedDial}
         icon={!open ? <MenuIcon /> : <MenuOpenIcon />}

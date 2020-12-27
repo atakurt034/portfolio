@@ -111,7 +111,7 @@ export const Project = ({ history }) => {
           ) : (
             projects.map((project, index) => (
               <React.Fragment key={index}>
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} sm={6} lg={4}>
                   <Tooltip
                     placement='top'
                     arrow={true}

@@ -44,6 +44,7 @@ export const TypeWriter = ({ exit, enter, image }) => {
             .pauseFor(500)
             .deleteChars(21)
             .callFunction(() => setChange(1))
+            .pauseFor(500)
             .callFunction(() => enter())
             .typeString(
               '<span class="string">lso a <span class="blue">registered nurse</span> but my passion is:</span>'
