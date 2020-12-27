@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     margin: 'auto',
     padding: 20,
-    width: 140,
+    width: 80,
   },
   link: {
     textTransform: 'none',
@@ -130,8 +130,7 @@ export const Contact = () => {
                 <Twitter color='primary' />
               </Button>
               <Box m={2}>
-                <Typography>Twitter</Typography>
-                <Typography variant='caption'>@KAVG034</Typography>
+                <Typography variant='caption'>Twitter</Typography>
               </Box>
             </a>
           </Box>
@@ -152,10 +151,7 @@ export const Contact = () => {
                 <Facebook color='primary' />
               </Button>
               <Box m={2} style={{ margin: '18px auto' }}>
-                <Typography>Facebook</Typography>
-                <Typography variant='caption'>
-                  facebook.com/kurt.gee.14
-                </Typography>
+                <Typography variant='caption'>Facebook</Typography>
               </Box>
             </a>
           </Box>
@@ -171,8 +167,7 @@ export const Contact = () => {
               <Edit color='error' />
             </Button>
             <Box m={2}>
-              <Typography>Message Me</Typography>
-              <Typography variant='caption'>Send Message</Typography>
+              <Typography variant='caption'>Message Me</Typography>
             </Box>
           </Box>
         </LightSpeed>
