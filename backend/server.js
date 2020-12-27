@@ -11,6 +11,7 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 
 const app = express()
+const __dirname = path.resolve()
 
 dotenv.config()
 connectDB()
@@ -37,25 +38,14 @@ app.use('/api/users', users)
 app.use('/api/projects', projects)
 app.use('/api/contacts', contacs)
 
-const __dirname = path.resolve()
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')))
-
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-  )
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running....')
-  })
-}
-
 const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    `Server running on `.white.bold +
+      `${process.env.NODE_ENV}`.yellow.bold +
+      ` at port `.white.bold +
+      `${PORT}`.yellow.bold
   )
 )
