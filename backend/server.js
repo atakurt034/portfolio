@@ -11,7 +11,6 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 
 const app = express()
-const __dirname = path.resolve()
 
 dotenv.config()
 connectDB()
