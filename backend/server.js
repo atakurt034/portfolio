@@ -11,6 +11,8 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 
 const app = express()
+const __dirname = path.resolve()
+
 dotenv.config()
 connectDB()
 
@@ -19,8 +21,6 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
-
-const __dirname = path.resolve()
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
