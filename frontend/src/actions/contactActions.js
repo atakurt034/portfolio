@@ -22,6 +22,12 @@ export const sendMail = (mail) => async (dispatch, getState) => {
       payload: { status: data.status, data: data.data },
     })
   } catch (error) {
-    dispatch({ type: CONTACT_SEND_MAIL_FAIL, payload: error.message })
+    dispatch({
+      type: CONTACT_SEND_MAIL_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
   }
 }

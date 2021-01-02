@@ -92,6 +92,7 @@ const ongoing = [
   { image: 'nextjs', name: 'Next Js' },
   { image: 'php', name: 'Php' },
   { image: 'postgres', name: 'Postgres' },
+  { image: 'typescript', name: 'Typescript' },
 ]
 
 export const Stacks = () => {

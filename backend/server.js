@@ -9,6 +9,7 @@ import projects from './routes/projectRoutes.js'
 import contacs from './routes/contactRoutes.js'
 
 import connectDB from './config/db.js'
+import { errorHandler, notFound } from './errorMiddleware.js'
 
 const app = express()
 const __dirname = path.resolve()
@@ -27,16 +28,19 @@ app.use('/api/projects', projects)
 app.use('/api/contacts', contacs)
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.use(express.static(path.join(__dirname, 'frontend', 'build')))
 
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
   )
 } else {
   app.get('/', (req, res) => {
     res.send('API is running....')
   })
 }
+
+app.use(errorHandler)
+app.use(notFound)
 
 const PORT = process.env.PORT || 5000
 
