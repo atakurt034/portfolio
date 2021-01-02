@@ -21,7 +21,9 @@ router
     body('message')
       .trim()
       .isLength({ min: 5 })
-      .withMessage("Please don't be shy and type more than 5 letters"),
+      .withMessage(
+        "Please don't be shy.Message me with more than 5 characters"
+      ),
     sendMail
   )
 

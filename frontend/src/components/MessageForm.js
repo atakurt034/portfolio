@@ -30,7 +30,9 @@ const namelKeywords = [
   'Use only letters for the name',
 ]
 const emailKeywords = ['Please Input Valid Email']
-const messageKeywords = ["Please don't be shy and type more than 5 letters"]
+const messageKeywords = [
+  "Please don't be shy.Message me with more than 5 characters",
+]
 
 export const MessageForm = ({ location, history }) => {
   const classes = useStyles()
