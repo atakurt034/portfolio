@@ -9,6 +9,7 @@ import projects from './routes/projectRoutes.js'
 import contacs from './routes/contactRoutes.js'
 
 import connectDB from './config/db.js'
+import { errorHandler, notFound } from './errorMiddleware.js'
 
 const app = express()
 const __dirname = path.resolve()
@@ -37,6 +38,9 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running....')
   })
 }
+
+app.use(errorHandler)
+app.use(notFound)
 
 const PORT = process.env.PORT || 5000
 
