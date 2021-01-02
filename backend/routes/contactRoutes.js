@@ -9,12 +9,17 @@ router
   .route('/')
   .post(
     body('name')
+      .trim()
       .isLength({ min: 3 })
       .withMessage('Please input a minimum of 3 characters on your name')
       .isAlpha('en-US', { ignore: '-s' })
       .withMessage('Use only letters for the name'),
-    body('email').isEmail().withMessage('Please Input Valid Email'),
+    body('email')
+      .isEmail()
+      .withMessage('Please Input Valid Email')
+      .normalizeEmail(),
     body('message')
+      .trim()
       .isLength({ min: 5 })
       .withMessage("Please don't be shy and type more than 5 letters"),
     sendMail
