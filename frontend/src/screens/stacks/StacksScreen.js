@@ -77,6 +77,7 @@ const frontend = [
   { image: 'react', name: 'React' },
   { image: 'ejs', name: 'Ejs' },
   { image: 'photoshop', name: 'Photoshop' },
+  { image: 'styled', name: 'Styled Components' },
 ]
 const backend = [
   { image: 'js', name: 'Javascript' },

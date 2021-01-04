@@ -20,24 +20,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const Footer = (params) => {
+export const Footer = ({ history }) => {
   const classes = useStyles()
+
+  const clickHandler = (event) => {
+    console.log(event)
+    window.open(event, '_blank')
+  }
+
   return (
     <Paper elevation={10} className={classes.footer}>
       <Grid container justify='center'>
         <Grid item xs={12} className={classes.item}>
           <Box component='span' mx={1}>
-            <IconButton size='small' color='primary'>
+            <IconButton
+              style={{ zIndex: 100 }}
+              size='small'
+              color='primary'
+              onClick={() =>
+                clickHandler('https://twitter.com/KAVG034?ref_src=twsrc%5Etfw')
+              }
+            >
               <TwitterIcon />
             </IconButton>
           </Box>
           <Box component='span' mx={1}>
-            <IconButton size='small' color='inherit'>
+            <IconButton
+              style={{ zIndex: 100 }}
+              size='small'
+              color='inherit'
+              onClick={() => clickHandler('https://github.com/atakurt034')}
+            >
               <GitHubIcon />
             </IconButton>
           </Box>
           <Box component='span' mx={1}>
-            <IconButton size='small' color='primary'>
+            <IconButton
+              style={{ zIndex: 100 }}
+              size='small'
+              color='primary'
+              onClick={() =>
+                clickHandler('https://www.facebook.com/kurt.gee.14/')
+              }
+            >
               <FacebookIcon />
             </IconButton>
           </Box>
