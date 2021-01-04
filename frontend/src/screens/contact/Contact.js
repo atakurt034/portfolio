@@ -75,7 +75,9 @@ export const Contact = () => {
 
   const messageHandler = (params) => {
     setOpen(!open)
-    window.location.href = '#message'
+    setTimeout(() => {
+      window.scrollBy(0, 400)
+    }, 1)
   }
 
   const text = ['Please', "don't", 'hesistate', 'to', 'contact', 'me']
