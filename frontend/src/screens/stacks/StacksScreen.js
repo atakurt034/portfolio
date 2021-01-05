@@ -128,7 +128,7 @@ export const Stacks = () => {
                           }}
                         >
                           <CardMedia
-                            image={`/icons/` + i.image + `.ico`}
+                            image={`/icons/` + i.image + `.jpg`}
                             component='img'
                           />
                         </Avatar>
@@ -159,7 +159,7 @@ export const Stacks = () => {
                           style={{ backgroundColor: 'transparent' }}
                         >
                           <CardMedia
-                            image={`/icons/` + i.image + `.ico`}
+                            image={`/icons/` + i.image + `.jpg`}
                             component='img'
                           />
                         </Avatar>
@@ -196,7 +196,7 @@ export const Stacks = () => {
                             style={{ backgroundColor: 'transparent' }}
                           >
                             <CardMedia
-                              image={`/icons/` + i.image + `.ico`}
+                              image={`/icons/` + i.image + `.jpg`}
                               component='img'
                             />
                           </Avatar>
