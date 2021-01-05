@@ -73,10 +73,24 @@ export const Contact = () => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
 
+  let duration = 1
+  let length = 1200
+  const smoothScroll = (params) => {
+    duration += 2.5
+    window.scrollBy(0, 1)
+    if (length > duration) {
+      setTimeout(() => {
+        smoothScroll()
+      }, 1)
+    }
+    console.log(duration)
+  }
+
   const messageHandler = (params) => {
     setOpen(!open)
     setTimeout(() => {
-      window.scrollBy(0, 400)
+      // window.scrollBy(0, 400)
+      smoothScroll()
     }, 1)
   }
 
