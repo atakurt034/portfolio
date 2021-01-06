@@ -3,6 +3,5 @@
     functions = './backend/'
 [[redirects]]
     from = "/api/*"
-    to = "/"
     status = 200
     force = true
