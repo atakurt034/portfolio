@@ -42,8 +42,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.use(errorHandler)
-app.use(notFound)
+router.use(errorHandler)
+router.use(notFound)
 
 const PORT = process.env.PORT || 5000
 

@@ -1,8 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
-const baseUrl = '/.netlify/functions/server'
+const basePath = '/.netlify/functions/server'
 
 module.exports = function (app) {
-  app.use(
-    createProxyMiddleware('/api', { target: '/.netlify/functions/server' })
-  )
+  app.use(createProxyMiddleware(basePath, { target: 'http://localhost:5000' }))
 }
