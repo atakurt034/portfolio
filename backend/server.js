@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 const router = express.Router()
 
-app.use('/.netlify/functions/server', router)
+app.use('/.netlify/backend/server', router)
 
 app.use('/api/users', users)
 app.use('/api/projects', projects)
