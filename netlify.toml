@@ -1,7 +1,4 @@
 [build]
     publish = "/frontend/build"
     functions = './backend/'
-[[redirects]]
-    from = "/api/*"
-    status = 200
-    force = true
+  

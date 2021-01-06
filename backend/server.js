@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import morgan from 'morgan'
 import path from 'path'
+import serverless from 'serverless-http'
 
 import users from './routes/userRoutes.js'
 import projects from './routes/projectRoutes.js'
@@ -50,3 +51,5 @@ app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
+
+module.exports.handler = serverless(app)
