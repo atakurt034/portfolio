@@ -30,17 +30,17 @@ router.use('/api/users', users)
 router.use('/api/projects', projects)
 router.use('/api/contacts', contacs)
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'frontend', 'build')))
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, 'frontend', 'build')))
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
-  )
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running....')
-  })
-}
+//   app.get('*', (req, res) =>
+//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
+//   )
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send('API is running....')
+//   })
+// }
 
 router.use(errorHandler)
 router.use(notFound)
