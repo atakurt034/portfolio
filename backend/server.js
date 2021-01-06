@@ -4,12 +4,15 @@ import colors from 'colors'
 import morgan from 'morgan'
 import path from 'path'
 
+import serverless from 'serverless-http'
+
 import users from './routes/userRoutes.js'
 import projects from './routes/projectRoutes.js'
 import contacs from './routes/contactRoutes.js'
 
 import connectDB from './config/db.js'
 import { errorHandler, notFound } from './utils/errorMiddleware.js'
+const router = express.Router()
 
 const app = express()
 const __dirname = path.resolve()
@@ -23,9 +26,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
 
-app.use('/api/users', users)
-app.use('/api/projects', projects)
-app.use('/api/contacts', contacs)
+router.use('/api/users', users)
+router.use('/api/projects', projects)
+router.use('/api/contacts', contacs)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'frontend', 'build')))
@@ -50,3 +53,8 @@ app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
+
+app.use('/.netlify/functions/server', router) // path must route to lambda
+
+exports = app
+exports.handler = serverless(app)
