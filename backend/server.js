@@ -12,8 +12,7 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 import { errorHandler, notFound } from './errorMiddleware.js'
 
-const functionName = 'serverless-http'
-const app = express(functionName)
+const app = express()
 const __dirname = path.resolve()
 
 dotenv.config()
