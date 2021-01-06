@@ -12,9 +12,10 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 import { errorHandler, notFound } from './utils/errorMiddleware.js'
 
-const functionName = 'serverless-http'
+const functionName = '/.netlify/functions/server'
 const app = express(functionName)
 const __dirname = path.resolve()
+const router = express.Router()
 
 dotenv.config()
 connectDB()
@@ -24,9 +25,6 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
-const router = express.Router()
-
-app.use('/.netlify/functions/server', router)
 
 app.use('/api/users', users)
 app.use('/api/projects', projects)
@@ -56,4 +54,7 @@ app.listen(
   )
 )
 
-// exports.handler = serverless(app)
+app.use('/.netlify/functions/server', router)
+
+exports = app
+exports.handler = serverless(app)
