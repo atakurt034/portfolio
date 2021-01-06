@@ -10,7 +10,7 @@ import projects from './routes/projectRoutes.js'
 import contacs from './routes/contactRoutes.js'
 
 import connectDB from './config/db.js'
-import { errorHandler, notFound } from './errorMiddleware.js'
+import { errorHandler, notFound } from './utils/errorMiddleware.js'
 
 const app = express()
 const __dirname = path.resolve()
@@ -23,6 +23,7 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
+const router = express.Router
 
 app.use('/api/users', users)
 app.use('/api/projects', projects)
@@ -52,4 +53,4 @@ app.listen(
   )
 )
 
-exports.handler = serverless(app)
+// exports.handler = serverless(app)

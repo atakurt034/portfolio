@@ -2,14 +2,14 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import colors from 'colors'
 
-import projects from './data/projects.js'
-import server from './data/server.js'
+import projects from '../data/projects.js'
+import server from '../data/server.js'
 
-import Projects from './models/projects.js'
-import Server from './models/serverStats.js'
-import User from './models/users.js'
+import Projects from '../models/projects.js'
+import Server from '../models/serverStats.js'
+import User from '../models/users.js'
 
-import connectDB from './config/db.js'
+import connectDB from '../config/db.js'
 
 dotenv.config()
 
