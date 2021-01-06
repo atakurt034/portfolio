@@ -23,7 +23,9 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('dev'))
 }
-const router = express.Router
+const router = express.Router()
+
+app.use('/.netlify/functions/serve-remote', router)
 
 app.use('/api/users', users)
 app.use('/api/projects', projects)
@@ -53,4 +55,5 @@ app.listen(
   )
 )
 
+exports = app
 exports.handler = serverless(app)
