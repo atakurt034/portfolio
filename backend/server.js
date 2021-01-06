@@ -53,4 +53,4 @@ app.listen(
   )
 )
 
-// exports.handler = serverless(app)
+exports.handler = serverless(app)
