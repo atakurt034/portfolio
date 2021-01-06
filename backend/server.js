@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import morgan from 'morgan'
 import path from 'path'
-import serverless from 'serverless-http'
 
 import users from './routes/userRoutes.js'
 import projects from './routes/projectRoutes.js'
@@ -12,10 +11,8 @@ import contacs from './routes/contactRoutes.js'
 import connectDB from './config/db.js'
 import { errorHandler, notFound } from './utils/errorMiddleware.js'
 
-const functionName = '/.netlify/functions/server'
-const app = express(functionName)
+const app = express()
 const __dirname = path.resolve()
-const router = express.Router()
 
 dotenv.config()
 connectDB()
@@ -53,8 +50,3 @@ app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
-
-app.use('/.netlify/functions/server', router)
-
-exports = app
-exports.handler = serverless(app)
